@@ -1,9 +1,13 @@
 {
-  "name": "nestjs_boilerplate",
+  "name": "nestjs_express_boilerplate",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/main.ts",
   "scripts": {
-    "start": "npx @nestjs/cli start"
+    "clean": "rimraf ./dist",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main"
   },
   "author": "",
   "license": "MIT",
@@ -26,6 +30,7 @@
     "mysql2": "^3.10.1",
     "nest-winston": "^1.10.0",
     "reflect-metadata": "^0.2.2",
+    "rimraf": "^5.0.7",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20",
     "typeorm-logger-adaptor": "^1.1.0",
