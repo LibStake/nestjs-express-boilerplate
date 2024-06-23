@@ -1,0 +1,47 @@
+{
+  "name": "nestjs_boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @nestjs/cli start"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@nestjs/axios": "^3.0.2",
+    "@nestjs/common": "^10.3.9",
+    "@nestjs/config": "^3.2.2",
+    "@nestjs/core": "^10.3.9",
+    "@nestjs/platform-express": "^10.3.9",
+    "@nestjs/serve-static": "^4.0.2",
+    "@nestjs/swagger": "^7.3.1",
+    "@nestjs/terminus": "^10.2.3",
+    "@nestjs/typeorm": "^10.0.2",
+    "axios": "^1.7.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1",
+    "nest-winston": "^1.10.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.20",
+    "typeorm-logger-adaptor": "^1.1.0",
+    "typeorm-naming-strategies": "^4.1.0",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "@nestjs/cli": "^10.3.2",
+    "@types/compression": "^1.7.5",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.8",
+    "eslint": "^9.5.0",
+    "prettier": "3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
