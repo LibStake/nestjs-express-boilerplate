@@ -6,7 +6,6 @@ import { join } from 'path';
 
 import { DatabaseModule } from './database/database.module';
 import { LoggerModule } from './logger/logger.module';
-import { UserModule } from './user/user.module';
 import { HealthModule } from './health/health.module';
 
 import serverConfig from '../configs/server.config';
@@ -21,7 +20,6 @@ import databaseConfig from '../configs/database.config';
         }),
         DatabaseModule,
         HealthModule,
-        UserModule,
     ],
 })
 class NestedModule {}
