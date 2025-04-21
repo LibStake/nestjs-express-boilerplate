@@ -27,6 +27,7 @@
     "class-validator": "^0.14.1",
     "compression": "^1.8.0",
     "express": "^5.1.0",
+    "hashids": "^2.3.0",
     "mysql2": "^3.14.0",
     "nest-winston": "^1.10.2",
     "reflect-metadata": "^0.2.2",

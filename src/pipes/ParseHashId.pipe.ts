@@ -1,9 +1,10 @@
 import { BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
+import Hashids from 'hashids';
 
 /**
- * Options for ParseIdPipe.
+ * Options for ParseHashIdPipe.
  */
-interface ParseIdPipeOptions {
+interface ParseHashIdPipeOptions {
     /**
      * Number of bytes for storing the ID.
      */
@@ -20,9 +21,10 @@ interface ParseIdPipeOptions {
 
 /** Validate and convert incoming parameter to valid ID */
 @Injectable()
-export class ParseIdPipe implements PipeTransform<string, number>{
+export class ParseHashIdPipe implements PipeTransform<string, number>{
     private readonly maxValue: number;
     private readonly minValue: number;
+    private readonly hashIds: Hashids = new Hashids();
 
     /**
      * Parse given value as an ID.
@@ -30,7 +32,7 @@ export class ParseIdPipe implements PipeTransform<string, number>{
      * @param options Validation pipe options
      */
     public constructor(
-        private readonly options: ParseIdPipeOptions = { bytes: 4, unsigned: true, allowZero: false }
+        private readonly options: ParseHashIdPipeOptions = { bytes: 4, unsigned: true, allowZero: false }
     ) {
         const bytes = Math.trunc(options.bytes);
         if (isNaN(bytes) || bytes <= 0)
@@ -43,11 +45,13 @@ export class ParseIdPipe implements PipeTransform<string, number>{
     }
 
     public transform(value: string) {
-        const integerValue = parseInt(value, 10);
+        if (!this.hashIds.isValidId(value))
+            throw new BadRequestException('Invalid hash id')
+        const integerValue = this.hashIds.decode(value)[0] as number;
         if (isNaN(integerValue))
             throw new BadRequestException('Id is not a number');
         if (integerValue < this.minValue || integerValue > this.maxValue)
-            throw new BadRequestException('Id exceeds max or min value');
+            throw new BadRequestException('Invalid id range');
         return integerValue;
     }
 }
