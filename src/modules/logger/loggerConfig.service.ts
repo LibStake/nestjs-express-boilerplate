@@ -15,7 +15,7 @@ export class LoggerConfigService implements WinstonModuleOptionsFactory {
 
     public createWinstonModuleOptions(): WinstonModuleOptions {
         const nodeEnv: 'production' | 'development' =
-            this.configService.get('server.env');
+            this.configService.get('server.env') ?? 'development';
         const format = winston.format.combine(
             winston.format.timestamp(),
             winston.format.printf(({ level, message, timestamp }) => {

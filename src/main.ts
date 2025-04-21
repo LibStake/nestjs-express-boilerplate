@@ -80,7 +80,7 @@ async function bootstrap() {
     SwaggerModule.setup('api', app, SwaggerModule.createDocument(app, documentConfig));
 
     // Run NestJS server
-    await app.listen(configService.get('server.port'), '0.0.0.0', () => {
+    await app.listen(configService.get('server.port') ?? 3000, '0.0.0.0', () => {
         loggerService.log(`=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=`);
         loggerService.log(`=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Running NestJS Server =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=`);
         loggerService.log(`=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=`);
