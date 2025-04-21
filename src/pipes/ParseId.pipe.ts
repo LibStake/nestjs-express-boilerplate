@@ -40,11 +40,11 @@ export class ParseIdPipe implements PipeTransform<string, number>{
     }
 
     public transform(value: string) {
-        const intergerValue = parseInt(value, 10);
-        if (isNaN(intergerValue))
-            throw new BadRequestException('Invalid ID');
-        if (intergerValue < this.minValue || intergerValue > this.maxValue)
-            throw new BadRequestException('Invalid ID');
-        return intergerValue;
+        const integerValue = parseInt(value, 10);
+        if (isNaN(integerValue))
+            throw new BadRequestException('Id is not a number');
+        if (integerValue < this.minValue || integerValue > this.maxValue)
+            throw new BadRequestException('Id exceeds max or min value');
+        return integerValue;
     }
 }
