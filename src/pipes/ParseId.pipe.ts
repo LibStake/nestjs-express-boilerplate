@@ -18,7 +18,7 @@ interface ParseIdPipeOptions {
     allowZero: boolean;
 }
 
-/** Validate and convert incoming parameter to valid ID */
+/** Validate and convert incoming parameter to valid numeric DB ID */
 @Injectable()
 export class ParseIdPipe implements PipeTransform<string, number>{
     private readonly maxValue: number;
