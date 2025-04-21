@@ -29,7 +29,7 @@ export class GeneralErrorHandler implements ExceptionFilter<unknown> {
 
     public catch(exception: unknown & { code?: string }, host: ArgumentsHost) {
         const env: 'production' | 'development' =
-            this.configService.get('server.env');
+            this.configService.get('server.env') ?? 'development';
 
         const { httpAdapter } = this.httpAdapterHost;
 

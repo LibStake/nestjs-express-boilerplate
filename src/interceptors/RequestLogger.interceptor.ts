@@ -34,7 +34,7 @@ export class RequestLoggerInterceptor implements NestInterceptor {
         const url = this.httpAdapterHost.httpAdapter.getRequestUrl(request);
         const host =
             this.httpAdapterHost.httpAdapter.getRequestHostname(request);
-        const body = JSON.stringify(request.body || '');
+        const body = JSON.stringify(request.body ?? '');
         this.logger.http(`${method} ${host} ${url} ${body}`);
         return next.handle();
     }

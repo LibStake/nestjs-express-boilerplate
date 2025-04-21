@@ -3,6 +3,7 @@ export class ServerResponseType<T> {
         public readonly statusCode: number,
         public readonly data?: T,
         public readonly message?: string,
-        public readonly error?: string
+        public readonly error?: string,
+        public readonly stacktrace?: string,
     ) {}
 }

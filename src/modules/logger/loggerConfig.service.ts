@@ -38,7 +38,7 @@ export class LoggerConfigService implements WinstonModuleOptionsFactory {
         ];
 
         // Enable console logger in development mode
-        if (nodeEnv === 'development') {
+        if (nodeEnv !== 'production') {
             transports.push(
                 new winston.transports.Console({
                     level: 'silly',

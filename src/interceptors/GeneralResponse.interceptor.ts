@@ -38,7 +38,7 @@ export class GeneralResponseInterceptor implements NestInterceptor {
 
     public handleResponse(data: unknown, context: ExecutionContext) {
         const env: 'production' | 'development' =
-            this.configService.get('server.env');
+            this.configService.get('server.env') ?? 'development';
 
         const ctx = context.switchToHttp();
         const request: Request = ctx.getRequest();
@@ -46,8 +46,22 @@ export class GeneralResponseInterceptor implements NestInterceptor {
 
         const status = response.statusCode;
 
+        const stacktrace =
+            env !== 'production'
+                ? (new Error().stack ?? '')
+                      .split('\n')
+                      .filter((ln) => ln.includes('src/'))
+                      .join('\n')
+                : undefined;
+
         const handledResponse: ServerResponseType<typeof data> =
-            new ServerResponseType(status, data);
+            new ServerResponseType(
+                status,
+                data,
+                undefined,
+                undefined,
+                stacktrace,
+            );
         return instanceToPlain(handledResponse);
     }
 }
