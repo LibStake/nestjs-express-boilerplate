@@ -1,5 +1,5 @@
-import serverInfo from '../../package.json'
+import serverInfo from '../../package.json';
 
 export const getServerVersion = () => {
-    return serverInfo.version
-}
+    return serverInfo.version;
+};

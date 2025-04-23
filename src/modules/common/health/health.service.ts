@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import {
     HealthCheckService,
     HttpHealthIndicator,
@@ -29,7 +29,10 @@ export class HealthService {
     }
 
     private checkInternetReachability() {
-        return this.httpHealthIndicatorService.pingCheck('google', 'https://google.com');
+        return this.httpHealthIndicatorService.pingCheck(
+            'google',
+            'https://google.com',
+        );
     }
 
     private checkDatabase() {

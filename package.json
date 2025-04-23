@@ -19,7 +19,7 @@
     "@nestjs/core": "^11.0.20",
     "@nestjs/platform-express": "^11.0.20",
     "@nestjs/serve-static": "^5.0.3",
-    "@nestjs/swagger": "^11.1.4",
+    "@nestjs/swagger": "^11.1.5",
     "@nestjs/terminus": "^11.0.0",
     "@nestjs/typeorm": "^11.0.0",
     "axios": "^1.8.4",
@@ -28,6 +28,7 @@
     "compression": "^1.8.0",
     "express": "^5.1.0",
     "hashids": "^2.3.0",
+    "libphonenumber-js": "^1.12.7",
     "mysql2": "^3.14.0",
     "nest-winston": "^1.10.2",
     "reflect-metadata": "^0.2.2",
@@ -40,12 +41,12 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
+    "@eslint/js": "^9.25.1",
     "@nestjs/cli": "^11.0.6",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
-    "eslint": "^9.25.0",
+    "eslint": "^9.25.1",
     "prettier": "3.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

@@ -20,7 +20,7 @@ interface ParseIdPipeOptions {
 
 /** Validate and convert incoming parameter to valid numeric DB ID */
 @Injectable()
-export class ParseIdPipe implements PipeTransform<string, number>{
+export class ParseIdPipe implements PipeTransform<string, number> {
     private readonly maxValue: number;
     private readonly minValue: number;
 
@@ -30,7 +30,11 @@ export class ParseIdPipe implements PipeTransform<string, number>{
      * @param options Validation pipe options
      */
     public constructor(
-        private readonly options: ParseIdPipeOptions = { bytes: 4, unsigned: true, allowZero: false }
+        private readonly options: ParseIdPipeOptions = {
+            bytes: 4,
+            unsigned: true,
+            allowZero: false,
+        },
     ) {
         const bytes = Math.trunc(options.bytes);
         if (isNaN(bytes) || bytes <= 0)

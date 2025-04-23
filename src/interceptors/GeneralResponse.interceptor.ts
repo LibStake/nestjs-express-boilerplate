@@ -8,7 +8,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { HttpAdapterHost } from '@nestjs/core';
 
-import { Observable, map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Logger } from 'winston';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Request, Response } from 'express';

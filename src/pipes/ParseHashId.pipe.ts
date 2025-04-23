@@ -21,7 +21,7 @@ interface ParseHashIdPipeOptions {
 
 /** Validate and convert incoming hashids parameter to valid single numeric DB ID */
 @Injectable()
-export class ParseHashIdPipe implements PipeTransform<string, number>{
+export class ParseHashIdPipe implements PipeTransform<string, number> {
     private readonly maxValue: number;
     private readonly minValue: number;
     private readonly hashIds: Hashids = new Hashids();
@@ -32,7 +32,11 @@ export class ParseHashIdPipe implements PipeTransform<string, number>{
      * @param options Validation pipe options
      */
     public constructor(
-        private readonly options: ParseHashIdPipeOptions = { bytes: 4, unsigned: true, allowZero: false }
+        private readonly options: ParseHashIdPipeOptions = {
+            bytes: 4,
+            unsigned: true,
+            allowZero: false,
+        },
     ) {
         const bytes = Math.trunc(options.bytes);
         if (isNaN(bytes) || bytes <= 0)
@@ -46,7 +50,7 @@ export class ParseHashIdPipe implements PipeTransform<string, number>{
 
     public transform(value: string) {
         if (!this.hashIds.isValidId(value))
-            throw new BadRequestException('Invalid hash id')
+            throw new BadRequestException('Invalid hash id');
         const integerValue = this.hashIds.decode(value)[0] as number;
         if (isNaN(integerValue))
             throw new BadRequestException('Id is not a number');

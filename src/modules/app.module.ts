@@ -4,9 +4,9 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 
 import { join } from 'path';
 
-import { DatabaseModule } from './database/database.module';
-import { LoggerModule } from './logger/logger.module';
-import { HealthModule } from './health/health.module';
+import { DatabaseModule } from './common/database/database.module';
+import { LoggerModule } from './common/logger/logger.module';
+import { HealthModule } from './common/health/health.module';
 
 import serverConfig from '../configs/server.config';
 import databaseConfig from '../configs/database.config';

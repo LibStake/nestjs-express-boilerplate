@@ -7,6 +7,7 @@ export default registerAs('database', () => ({
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DATABASE_NAME,
     synchronize: (process.env.DATABASE_SYNC ?? '').toLowerCase() === 'true',
-    dropSchema: (process.env.DATABASE_DROP_SCHEMA ?? '').toLowerCase() === 'true',
+    dropSchema:
+        (process.env.DATABASE_DROP_SCHEMA ?? '').toLowerCase() === 'true',
     logging: (process.env.DATABASE_LOGGING ?? '').toLowerCase() === 'true',
 }));

@@ -1,10 +1,12 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { WinstonModuleOptions, WinstonModuleOptionsFactory } from 'nest-winston';
-
-const winston = require('winston');
+import {
+    WinstonModuleOptions,
+    WinstonModuleOptionsFactory,
+} from 'nest-winston';
 import 'winston-daily-rotate-file';
 
+const winston = require('winston');
 
 @Injectable()
 export class LoggerConfigService implements WinstonModuleOptionsFactory {
